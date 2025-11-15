@@ -3,8 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-// CORREÇÃO 1: Usando 'mod_id' que já existe em gradle.properties
-archivesBaseName = property('mod_id') 
+archivesBaseName = property('mod_id')
 version = property('mod_version')
 group = property('maven_group')
 
@@ -17,11 +16,16 @@ repositories {
 }
 
 dependencies {
-    // CORREÇÃO 2: Usando a sintaxe property() para garantir que os valores sejam lidos corretamente.
     minecraft "com.mojang:minecraft:${property('minecraft_version')}"
     mappings "net.fabricmc:yarn:${property('yarn_mappings')}:v2"
     modImplementation "net.fabricmc:fabric-loader:${property('loader_version')}"
+
+    // API genérica do Fabric
     modImplementation "net.fabricmc.fabric-api:fabric-api:${property('fabric_version')}"
+
+    // --- LINHA ADICIONADA ---
+    // Adiciona a dependência específica para a API de Comandos v1
+    modImplementation "net.fabricmc.fabric-api:fabric-command-api-v1:${property('fabric_version')}"
 }
 
 processResources {
