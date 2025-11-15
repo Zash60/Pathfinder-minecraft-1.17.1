@@ -23,8 +23,10 @@ dependencies {
     // API genérica do Fabric
     modImplementation "net.fabricmc.fabric-api:fabric-api:${property('fabric_version')}"
 
-    // CORREÇÃO: Usa a versão v2 da API de Comandos, que contém ClientCommandRegistrationCallback
-    modImplementation "net.fabricmc.fabric-api:fabric-command-api-v2:${property('fabric_version')}"
+    // CORREÇÃO: Removemos a dependência específica para command-api-v2
+    // O fabric-api principal já deve incluir o que você precisa
+    // Se precisar especificamente de comandos, use a versão correta:
+    // modImplementation "net.fabricmc.fabric-api:fabric-command-api-v1:${property('fabric_version')}"
 }
 
 processResources {
