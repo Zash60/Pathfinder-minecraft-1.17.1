@@ -20,7 +20,8 @@ dependencies {
     mappings "net.fabricmc:yarn:${property('yarn_mappings')}:v2"
     modImplementation "net.fabricmc:fabric-loader:${property('loader_version')}"
 
-    // Configuração correta especificando os módulos da Fabric API explicitamente
+    // CORREÇÃO FINAL E DEFINITIVA: 
+    // Nós DEVEMOS especificar os módulos da API explicitamente para o build funcionar.
     def fabric_api_version = property('fabric_version')
 
     // Módulo base, sempre necessário
