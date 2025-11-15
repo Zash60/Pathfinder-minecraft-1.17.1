@@ -16,10 +16,12 @@ jobs:
           distribution: 'temurin'
       
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3 # Usando a versão mais recente e específica para setup
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          # ADICIONADO: Força o uso de uma versão do Gradle compatível com JDK 16
+          gradle-version: '7.3'
 
       - name: Build with Gradle
-        # MODIFICADO: Usa 'gradle' (o comando global) em vez de './gradlew' (o arquivo local)
         run: gradle build
 
       - name: Upload artifact
