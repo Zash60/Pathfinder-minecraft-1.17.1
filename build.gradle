@@ -19,16 +19,12 @@ dependencies {
     minecraft "com.mojang:minecraft:${property('minecraft_version')}"
     mappings "net.fabricmc:yarn:${property('yarn_mappings')}:v2"
     modImplementation "net.fabricmc:fabric-loader:${property('loader_version')}"
+    
+    // API genérica do Fabric
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${property('fabric_version')}"
 
-    // CORREÇÃO FINAL: Especificando os módulos da Fabric API explicitamente
-    def fabric_api_version = property('fabric_version')
-
-    // Módulo base, sempre necessário
-    modImplementation "net.fabricmc.fabric-api:fabric-api-base:${fabric_api_version}"
-    // Módulo para eventos de tick e renderização
-    modImplementation "net.fabricmc.fabric-api:fabric-lifecycle-events-v1:${fabric_api_version}"
-    // Módulo para a API de comandos do cliente (a que estava faltando)
-    modImplementation "net.fabricmc.fabric-api:fabric-command-api-v1:${fabric_api_version}"
+    // CORREÇÃO: Usa a versão v2 da API de Comandos, que contém ClientCommandRegistrationCallback
+    modImplementation "net.fabricmc.fabric-api:fabric-command-api-v2:${property('fabric_version')}"
 }
 
 processResources {
