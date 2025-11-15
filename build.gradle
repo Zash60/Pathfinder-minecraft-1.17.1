@@ -19,13 +19,12 @@ dependencies {
     minecraft "com.mojang:minecraft:${property('minecraft_version')}"
     mappings "net.fabricmc:yarn:${property('yarn_mappings')}:v2"
     modImplementation "net.fabricmc:fabric-loader:${property('loader_version')}"
-
+    
     // API genérica do Fabric
     modImplementation "net.fabricmc.fabric-api:fabric-api:${property('fabric_version')}"
 
-    // --- LINHA ADICIONADA ---
-    // Adiciona a dependência específica para a API de Comandos v1
-    modImplementation "net.fabricmc.fabric-api:fabric-command-api-v1:${property('fabric_version')}"
+    // CORREÇÃO: Usa a versão v2 da API de Comandos, que contém ClientCommandRegistrationCallback
+    modImplementation "net.fabricmc.fabric-api:fabric-command-api-v2:${property('fabric_version')}"
 }
 
 processResources {
